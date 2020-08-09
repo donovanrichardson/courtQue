@@ -1,0 +1,75 @@
+
+Registration Page
+ POST /account
+  input
+  {
+   'phoneNumber': '1-234-5678',
+  }
+  returns
+  {
+   'id' : 'xxx'
+  }
+ PUT /account
+  input
+  {
+   'EnableSMSAlerts': 'Yes'/'No'
+   'RemindINMinutes
+  }
+
+
+Reservations Page
+ GET /courts
+  input
+  {
+   'GPS':
+   {
+    'lat': 'xxx',
+	'long': 'yyy'
+   }
+  }
+  returns
+  {
+   [
+    {
+	 'id': 'aaa',
+	 'name': 'Court 1',   
+	 'type': 'single'/'doubles',
+	 'slots':
+	 [
+      {
+       'id': 'yyy',
+       'startTime': 'EST',
+       'status': 'UNAVAILABLE'/'AVAILABLE'/'RESERVED'
+      },
+      {
+       'id': 'yyy',
+       'startTime': 'EST',
+       'status': 'UNAVAILABLE'/'AVAILABLE'/'RESERVED'
+      },
+     ]
+	},
+	...
+   ]
+  }
+
+ POST /courts/{courtId}/slots
+  input
+  {
+   'userId' 'xxx',
+   'slotId': 'yyy'
+  }
+  returns
+  {
+	'slotId': 'yyy'/'-1'
+	'errorMessage': 'xyz'
+  } 
+
+ DELETE /slots/yyy
+  input
+  {
+   'userId': 'yyy'
+  }
+  returns
+  {
+  } 
+		
